@@ -86,7 +86,7 @@ export default function Navbar() {
 
         {/* EXTERNAL HUB LAUNCH CTA */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <a href="https://app.merchantgo.online" target="_blank" rel="noreferrer" className="btn-primary-glow" style={{ padding: '10px 20px', fontSize: '0.92rem' }}>
+          <a href="https://app.merchantgo.store" target="_blank" rel="noreferrer" className="btn-primary-glow" style={{ padding: '10px 20px', fontSize: '0.92rem' }}>
             Launch Web Admin Hub <ArrowRight size={16} />
           </a>
         </div>

@@ -166,7 +166,7 @@ export default function Home() {
                     <CheckCircle2 size={18} color="#00ff66" /> <strong>Helper Attribution Switcher</strong>: Quickly attribute sales to weekend assistants (Marco or Sofia) from a simple top dropdown.
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <CheckCircle2 size={18} color="#00ff66" /> <strong>Rapid Settle & Wipe</strong>: Tapping Rapid Pay displays instant cash change calculators and Stripe NFC contactless readers, resetting the cart cleanly in half a second!
+                    <CheckCircle2 size={18} color="#00ff66" /> <strong>Rapid Settle & Wipe</strong>: Tapping Rapid Pay displays instant cash change calculators and Mercado Pago / Clip contactless terminals, resetting the cart cleanly in half a second!
                   </li>
                 </ul>
                 <Link to="/pricing" className="btn-express-glow">
@@ -283,14 +283,14 @@ export default function Home() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
               <span style={{ padding: '6px 14px', background: 'rgba(99, 91, 255, 0.2)', border: '1px solid #635bff', borderRadius: '999px', color: '#9d96ff', fontWeight: 800, fontSize: '0.8rem' }}>
-                🚀 ENTERPRISE SYNC & R&D ROADMAP
+                🚀 LIVE ECOSYSTEM INTEGRATION
               </span>
             </div>
             <h2 style={{ fontSize: '2.8rem', color: '#fff', marginBottom: '18px', lineHeight: 1.15 }}>
-              Reliable Cloud Backup & Our Inventory Roadmap
+              Automated Cloud Backups & Inventory Sync
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.08rem', lineHeight: 1.7, marginBottom: '28px' }}>
-              MerchantGo safeguards your daily operational ledgers with automated cloud backups and strict account privacy today. Plus, explore our future R&D roadmap for an automated bridge with our StockMachine SaaS platform, enabling seamless raw recipe tracking in upcoming releases!
+              MerchantGo safeguards your daily operational ledgers with automated cloud backups and strict account privacy. Plus, it features a live, seamless bridge with our StockMachine SaaS platform, automatically depleting raw ingredients the second an order is settled!
             </p>
             <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
               <Link to="/pricing" className="btn-primary-glow" style={{ background: '#635bff', boxShadow: '0 0 35px rgba(99, 91, 255, 0.45)' }}>
@@ -310,7 +310,7 @@ export default function Home() {
               <div style={{ color: '#38bdf8' }}>[Staff Access] Manager verified shift start for Station #1 (Window)...</div>
               <div>[Table Sync] Order #801 synchronized across bar tablet stations...</div>
               <div style={{ color: '#ffb800' }}>[Shift Audit] Daily Z-Report balance verified. $1,420.00 logged cleanly to archive.</div>
-              <div style={{ color: '#00ff66' }}>[Roadmap Preview] R&D Hook: StockMachine recipe inventory bridge in experimental testing.</div>
+              <div style={{ color: '#00ff66' }}>[StockMachine Hook] Live depletion triggered: 1x Patty Chuck deduct confirmed.</div>
             </div>
           </div>
         </div>

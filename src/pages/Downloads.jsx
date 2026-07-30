@@ -29,7 +29,7 @@ export default function Downloads() {
     {
       title: '🌐 Web Admin Dashboard & Home Analytics',
       role: 'Venue Managers & After-Hours Owner Stats',
-      desc: 'No installation required. Access your menu item management, active table accounts, and after-hours performance analytics directly through any modern web browser.',
+      desc: 'No installation required. Access your menu engineering, SaaS seat provisioning, and after-hours executive analytics directly through any modern web browser.',
       version: 'v2.0.4 (Cloud Web Release)',
       binaries: [
         { label: 'Launch Admin Hub Portal (app.merchantgo.store)', size: 'Cloud Portal', os: 'Any Modern Browser' },

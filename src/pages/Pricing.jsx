@@ -71,7 +71,7 @@ export default function Pricing() {
           ● Transparent Enterprise & Solo Monetization
         </span>
         <h1 style={{ fontSize: '3.6rem', marginBottom: '16px' }}>
-          Simple SaaS Plans. <span className="text-gradient-green">Stripe Embedded</span> Checkout.
+          Simple SaaS Plans. <span className="text-gradient-green">Secure Embedded</span> Checkout.
         </h1>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', maxWidth: '720px', margin: '0 auto' }}>
           Select the operating plan tailored to your venue. Upgrade smoothly inside our native glassmorphic modals without being thrown out to external browser tabs!
@@ -145,7 +145,7 @@ export default function Pricing() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px dashed rgba(255,255,255,0.2)', paddingBottom: '16px', marginBottom: '24px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: '#635bff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900 }}>S</div>
-                <span style={{ fontSize: '1.25rem', fontWeight: 800, fontFamily: 'Outfit', color: '#fff' }}>Stripe Embedded Checkout</span>
+                <span style={{ fontSize: '1.25rem', fontWeight: 800, fontFamily: 'Outfit', color: '#fff' }}>Secure SaaS Checkout</span>
               </div>
               <span style={{ fontSize: '0.75rem', padding: '4px 10px', background: 'rgba(0, 255, 102, 0.15)', color: '#00ff66', borderRadius: '999px', fontWeight: 700, border: '1px solid rgba(0,255,102,0.3)' }}>
                 ● SSL Verified Secure
@@ -166,7 +166,7 @@ export default function Pricing() {
                 <strong style={{ color: '#fff' }}>merchant_venue_801@cloud.store</strong>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem', color: '#ccc' }}>
-                <span>Stripe Billing Method:</span>
+                <span>Billing Method:</span>
                 <strong style={{ color: '#00ff66' }}>Visa ending in •••• 4242 (Test Mode)</strong>
               </div>
             </div>

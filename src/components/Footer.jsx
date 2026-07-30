@@ -19,7 +19,7 @@ export default function Footer() {
               <Database size={13} /> Cloud Sync Ready
             </span>
             <span style={{ padding: '4px 10px', background: 'rgba(99, 91, 255, 0.15)', border: '1px solid rgba(99, 91, 255, 0.4)', borderRadius: '999px', color: '#8a85ff', fontSize: '0.75rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-              <CreditCard size={13} /> Stripe Embedded Native
+              <CreditCard size={13} /> Secure SaaS Billing
             </span>
           </div>
         </div>
@@ -51,7 +51,7 @@ export default function Footer() {
             <li>▪ Desktop Consoles (Windows, Linux, macOS Soon)</li>
             <li>▪ Shared Touch Tablets (Android & Web)</li>
             <li>▪ Modern Web Browsers (Chrome, Safari, Firefox)</li>
-            <li>▪ Stripe NFC & Tap to Pay on Mobile Devices</li>
+            <li>▪ Mercado Pago & Clip Terminal Integration</li>
           </ul>
         </div>
 

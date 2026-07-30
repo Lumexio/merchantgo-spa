@@ -61,7 +61,7 @@ export default function Navbar() {
               gap: '8px'
             }}
           >
-            <DollarSign size={16} color="#00ff66" /> SaaS Pricing (Stripe)
+            <DollarSign size={16} color="#00ff66" /> SaaS Pricing
           </Link>
 
           <Link 

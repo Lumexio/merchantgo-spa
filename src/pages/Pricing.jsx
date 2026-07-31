@@ -13,11 +13,11 @@ export default function Pricing() {
       target: 'Weekend vendors, street stalls & single kiosks',
       color: '#38bdf8',
       features: [
+        'Offline Open Box Experience (Start instantly without an account)',
+        '25 Menu Item Limit (or Unlimited via Google Cloud Sync)',
         'All-in-One Express Quick-Serve POS Mode',
-        'Exact Cash Tender & Change Calculator',
         'Local offline shift audit trails & simple Z-Reports',
-        'Single Touch Terminal seat (Tablet or Laptop)',
-        'Standard Community Forum Support'
+        'Statistics & Analytics (Web Admin Hub Only)'
       ],
       cta: 'Launch Free Starter →',
       recommended: false
@@ -29,9 +29,9 @@ export default function Pricing() {
       target: 'Active food trucks, coffee trucks & boutique vendors',
       color: '#00ff66',
       features: [
-        'Everything in Free Starter + Unlimited Speed',
+        '100 Menu Item Limit (or Unlimited via Google Cloud Sync)',
+        'Staff Limit & Storage Indicator Capacity Bars',
         '👤 Helper Staff PIN Switcher (Up to 3 Weekend Helpers)',
-        '📈 After-Hours Home Analytics & Peak Rush Hour Charts',
         '🔒 Shared Touch Tablet 4-Digit Waiter PIN Security',
         '💳 Contactless Terminal Tap to Pay Integration',
         '☁️ Automated Cloud Data Backup Protection'
@@ -46,8 +46,8 @@ export default function Pricing() {
       target: 'Full-service table restaurants, cocktail bars & clubs',
       color: 'var(--primary-pos)',
       features: [
+        '250 Menu Item Limit (or Unlimited via Google Cloud Sync)',
         'Full Multi-Station Waiter Tablet Shared Keypads (PIN 4-digit)',
-        'Automatic Post-Order Station Security Locking',
         '🖥️ Desktop Cashier Consoles & Digital Z-Report Auditing',
         '🔓 Real-Time Shift Till Reconciliation & Cloud Sync',
         'El Corte de Caja General & Individual Waiter Tip Pools',

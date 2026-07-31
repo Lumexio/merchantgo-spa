@@ -160,6 +160,9 @@ export default function Home() {
                 </p>
                 <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '1rem', color: '#fff', marginBottom: '32px' }}>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <CheckCircle2 size={18} color="#00ff66" /> <strong>Open Box Offline Mode</strong>: Download, set a local password, and start ringing up orders instantly without an internet connection or SaaS account.
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <CheckCircle2 size={18} color="#00ff66" /> <strong>No-PIN Bypass</strong>: Launch straight into register operations without numpads.
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>

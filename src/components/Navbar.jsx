@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Utensils, Zap, Download, DollarSign, ArrowRight, ShieldCheck, Truck } from 'lucide-react';
+import { Utensils, Zap, Download, DollarSign, ArrowRight, ShieldCheck, Truck, Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isActive = (path) => location.pathname === path;
 
@@ -25,7 +26,7 @@ export default function Navbar() {
         </Link>
 
         {/* NAVIGATION LINKS */}
-        <nav style={{ display: 'flex', gap: '8px' }}>
+        <nav className="desktop-nav" style={{ display: 'flex', gap: '8px' }}>
           <Link 
             to="/" 
             style={{ 
@@ -85,13 +86,40 @@ export default function Navbar() {
         </nav>
 
         {/* EXTERNAL HUB LAUNCH CTA */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <a href="https://app.merchantgo.store" target="_blank" rel="noreferrer" className="btn-primary-glow" style={{ padding: '10px 20px', fontSize: '0.92rem' }}>
             Launch Web Admin Hub <ArrowRight size={16} />
           </a>
         </div>
 
+        {/* Mobile Hamburger Toggle */}
+        <button 
+          className="mobile-menu-btn" 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
       </div>
+
+      {/* Mobile Navigation Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="mobile-nav-overlay">
+          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} style={{ color: isActive('/') ? '#fff' : 'var(--text-main)', fontSize: '1.2rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Zap size={20} color="var(--primary-pos)" /> Features & Modes
+          </Link>
+          <Link to="/pricing" onClick={() => setIsMobileMenuOpen(false)} style={{ color: isActive('/pricing') ? '#fff' : 'var(--text-main)', fontSize: '1.2rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <DollarSign size={20} color="#00ff66" /> SaaS Pricing
+          </Link>
+          <Link to="/downloads" onClick={() => setIsMobileMenuOpen(false)} style={{ color: isActive('/downloads') ? '#fff' : 'var(--text-main)', fontSize: '1.2rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Download size={20} color="#38bdf8" /> Client Apps & Binaries
+          </Link>
+          <div style={{ height: '1px', background: 'var(--border-glass)', margin: '10px 0' }} />
+          <a href="https://app.merchantgo.store" target="_blank" rel="noreferrer" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'var(--primary-pos)', fontSize: '1.2rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            Launch Web Admin Hub <ArrowRight size={18} />
+          </a>
+        </div>
+      )}
     </header>
   );
 }

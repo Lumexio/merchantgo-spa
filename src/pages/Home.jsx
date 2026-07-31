@@ -149,7 +149,7 @@ export default function Home() {
         {/* DEMO DISPLAY CARD */}
         <div className="glass-panel" style={{ padding: '48px', borderTop: demoMode === 'SOLO_TRUCK' ? '4px solid #00ff66' : '4px solid var(--primary-pos)', transition: 'all 0.3s' }}>
           {demoMode === 'SOLO_TRUCK' ? (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '40px', alignItems: 'center' }}>
+            <div className="responsive-grid-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
                 <span style={{ color: '#00ff66', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '8px' }}>
                   🚚 Optimized for Kiosks, Food Trucks & Solo Vendors
@@ -202,7 +202,7 @@ export default function Home() {
               </div>
             </div>
           ) : (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '40px', alignItems: 'center' }}>
+            <div className="responsive-grid-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
                 <span style={{ color: 'var(--primary-pos)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '8px' }}>
                   🏢 Engineered for Full-Service Bars & Restaurants
@@ -262,7 +262,7 @@ export default function Home() {
           Engineered for ultra-low latency, strict Row-Level Security, and instant cloud real-time responsiveness.
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '28px' }}>
+        <div className="responsive-grid-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '28px' }}>
           {features.map((item, index) => (
             <div key={index} className="glass-panel" style={{ padding: '32px', borderLeft: `4px solid ${item.color}`, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
@@ -282,7 +282,7 @@ export default function Home() {
 
       {/* RELIABILITY & FUTURE ROADMAP BANNER */}
       <section style={{ maxWidth: '1280px', margin: '0 auto 120px', padding: '0 28px' }}>
-        <div className="glass-panel" style={{ padding: '64px 48px', background: 'radial-gradient(circle at right, rgba(99, 91, 255, 0.15) 0%, rgba(20,24,35,0.85) 100%)', border: '1px solid rgba(99, 91, 255, 0.35)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '40px', alignItems: 'center' }}>
+        <div className="glass-panel responsive-grid-mobile" style={{ padding: '64px 48px', background: 'radial-gradient(circle at right, rgba(99, 91, 255, 0.15) 0%, rgba(20,24,35,0.85) 100%)', border: '1px solid rgba(99, 91, 255, 0.35)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '40px', alignItems: 'center' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
               <span style={{ padding: '6px 14px', background: 'rgba(99, 91, 255, 0.2)', border: '1px solid #635bff', borderRadius: '999px', color: '#9d96ff', fontWeight: 800, fontSize: '0.8rem' }}>

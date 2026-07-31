@@ -53,7 +53,7 @@ export default function Downloads() {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '36px', marginBottom: '100px' }}>
+      <div className="responsive-grid-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '36px', marginBottom: '100px' }}>
         {platforms.map((plat, idx) => (
           <div key={idx} className="glass-panel" style={{ padding: '40px', borderTop: `4px solid ${plat.color}`, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>

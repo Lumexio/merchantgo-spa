@@ -4,7 +4,7 @@ import { ShieldCheck, Cpu, Database, CreditCard, ExternalLink } from 'lucide-rea
 export default function Footer() {
   return (
     <footer style={{ borderTop: '1px solid var(--border-glass)', backgroundColor: '#06070a', padding: '60px 28px 40px' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '40px', marginBottom: '48px' }}>
+      <div className="responsive-grid-mobile" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '40px', marginBottom: '48px' }}>
         
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>

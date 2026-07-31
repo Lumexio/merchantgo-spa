@@ -79,7 +79,7 @@ export default function Pricing() {
       </div>
 
       {/* PLAN TIERS GRID */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '32px', marginBottom: '80px' }}>
+      <div className="responsive-grid-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '32px', marginBottom: '80px' }}>
         {plans.map((p, idx) => (
           <div 
             key={idx} 

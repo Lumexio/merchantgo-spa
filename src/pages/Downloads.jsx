@@ -49,7 +49,7 @@ export default function Downloads() {
       version: releases.desktop?.tag_name || (releasesChecked ? 'No public release' : 'Checking GitHub…'),
       binaries: [
         releaseBinary(releases.desktop, 'Windows installer', ['.exe'], 'download_windows'),
-        releaseBinary(releases.desktop, 'Linux AppImage', ['.appimage'], 'download_linux'),
+        releaseBinary(releases.desktop, 'Linux Debian', ['.deb'], 'download_linux'),
       ],
       color: 'var(--primary-pos)'
     },
@@ -77,7 +77,7 @@ export default function Downloads() {
 
   return (
     <div style={{ padding: '80px 28px', maxWidth: '1280px', margin: '0 auto' }}>
-      
+
       <div style={{ textAlign: 'center', marginBottom: '64px' }}>
         <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#38bdf8', background: 'rgba(56, 189, 248, 0.12)', padding: '6px 16px', borderRadius: '999px', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'inline-block', marginBottom: '16px', border: '1px solid rgba(56, 189, 248, 0.35)' }}>
           ● Client Availability
@@ -100,7 +100,7 @@ export default function Downloads() {
               <span style={{ color: plat.color, fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase', display: 'block', marginBottom: '16px' }}>
                 ● {plat.role}
               </span>
-              
+
               <p style={{ color: 'var(--text-muted)', fontSize: '0.98rem', lineHeight: 1.6, marginBottom: '28px' }}>
                 {plat.desc}
               </p>
@@ -118,7 +118,7 @@ export default function Downloads() {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '32px' }}>
                 {plat.binaries.map((bin, bIdx) => (
-                  <button 
+                  <button
                     key={bIdx}
                     onClick={() => {
                       if (!bin.unavailable) {
@@ -127,7 +127,7 @@ export default function Downloads() {
                       }
                     }}
                     disabled={bin.unavailable}
-                    className="btn-outline-glass" 
+                    className="btn-outline-glass"
                     style={{ width: '100%', padding: '16px', justifyContent: 'space-between', fontSize: '0.92rem', textAlign: 'left', background: bin.unavailable ? 'rgba(255,255,255,0.015)' : 'rgba(255,255,255,0.03)', opacity: bin.unavailable ? 0.65 : 1, cursor: bin.unavailable ? 'not-allowed' : 'pointer' }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>

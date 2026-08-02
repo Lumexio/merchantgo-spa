@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Zap, ShieldCheck, DollarSign, Utensils, Download, ArrowRight, Truck, Users, Database, RefreshCw, Layers, CheckCircle2 } from 'lucide-react';
+import { Zap, DollarSign, Truck, Users, CheckCircle2 } from 'lucide-react';
+import { trackKpi } from '../telemetry.js';
 
 export default function Home() {
   const [demoMode, setDemoMode] = useState('SOLO_TRUCK'); // 'SOLO_TRUCK' | 'HOSPITALITY'
 
   const features = [
-    { title: '⚡ No-Lock Express Register', desc: 'Settle orders and wipe carts instantly in half a second without forcing PIN code re-authentication during peak lunch rushes.', color: '#00ff66' },
+    { title: '⚡ Express Register', desc: 'Record cash or external card-terminal settlements through the authenticated MerchantGo API.', color: '#00ff66' },
     { title: '🔒 Shared Tablet PIN Keypad', desc: 'Waitstaff enter assigned 4-digit PINs on shared floor tablets to submit table orders; station auto-locks immediately after.', color: 'var(--primary-pos)' },
-    { title: '💵 El Corte de Caja (Z-Reports)', desc: 'Execute General Shift settlements or Individual Helper cashouts with comprehensive audit summaries stored securely.', color: '#38bdf8' },
-    { title: '📈 Real-Time Table Order Sync', desc: 'Shared floor touch tablets instantly synchronize active room accounts, drinks, and table orders across all bartender and cashier stations.', color: '#ffb800' },
-    { title: '☁️ Cloud Team Management', desc: 'Manage waitstaff access and assign role-based shift permissions securely from any device with automatic cloud backups.', color: '#a855f7' },
-    { title: '📊 Digital Shift Audit & Z-Reports', desc: 'Our fast desktop consoles provide clean digital receipts, shift settlements, and end-of-day accounting reports on demand.', color: '#ff4d4d' },
+    { title: '💵 El Corte de Caja', desc: 'Generate individual cashouts or Enterprise Admin general cashouts from settled orders.', color: '#38bdf8' },
+    { title: '📈 Scoped Order Routing', desc: 'Orders and transfers are restricted to the authenticated tenant and branch.', color: '#ffb800' },
+    { title: '☁️ Role & Plan Enforcement', desc: 'The API intersects each authenticated role with the active plan before allowing protected actions.', color: '#a855f7' },
+    { title: '📊 Cash and Card Breakdown', desc: 'Cashout reports summarize recorded cash and external card-terminal settlements.', color: '#ff4d4d' },
   ];
 
   return (
@@ -33,21 +34,24 @@ export default function Home() {
         </div>
 
         <h1 style={{ fontSize: '4.4rem', lineHeight: 1.12, marginBottom: '24px', fontWeight: 900, maxWidth: '980px', margin: '0 auto 24px', letterSpacing: '-0.03em' }}>
-          The point of sale system built for <span class="text-gradient-orange">enterprise hospitality</span> and <span class="text-gradient-green">solo food truck owners</span>
+          The point of sale system built for <span className="text-gradient-orange">enterprise hospitality</span> and <span className="text-gradient-green">solo food truck owners</span>
         </h1>
 
         <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', maxWidth: '720px', margin: '0 auto 40px', lineHeight: 1.6 }}>
-          Whether you manage a multi-station downtown cocktail bar or operate a solo mobile food truck, MerchantGo unifies your registers, table order tracking, and daily shift financial balances in one intuitive cloud suite.
+          Whether you manage a multi-station bar or operate a solo food truck, MerchantGo routes authenticated POS and cashout workflows through its VPS-hosted API.
         </p>
 
         <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
-          <Link to="/pricing" className="btn-primary-glow" style={{ fontSize: '1.15rem', padding: '16px 36px' }}>
-            <Zap size={20} /> Get Started Free Today
-          </Link>
-          <Link to="/downloads" className="btn-outline-glass" style={{ fontSize: '1.1rem', padding: '16px 32px' }}>
-            <Download size={20} color="#38bdf8" /> Explore Client Apps & Binaries
+          <a href="https://app.merchantgo.store" onClick={() => trackKpi('cta_start_free')} className="btn-express-glow" style={{ fontSize: '1.15rem', padding: '16px 36px' }}>
+            <Zap size={20} /> Start Free
+          </a>
+          <Link to="/pricing" onClick={() => trackKpi('cta_compare_plans')} className="btn-outline-glass" style={{ fontSize: '1.1rem', padding: '16px 32px' }}>
+            <DollarSign size={20} color="#38bdf8" /> Compare Plans
           </Link>
         </div>
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '18px' }}>
+          Free includes core POS workflows for one operator. Choose “Register Cloud Workspace” in the app; no card is required.
+        </p>
       </section>
 
       {/* INFINITE MARQUEE SECTION */}
@@ -57,10 +61,10 @@ export default function Home() {
             '⚡ No-Lock Express Register for High-Velocity Lines',
             '🔒 4-Digit Waiter PIN Shared Tablet Security',
             '💵 El Corte de Caja (General & Waiter Z-Reports)',
-            '📈 Real-Time Tablet Order Sync & Room Routing',
-            '☁️ Cloud Multi-User Staff Identity & Security',
-            '💳 Simple Subscription Plans & Secure Billing',
-            '📊 Instant Digital Receipt & Shift Audit Exporting',
+            '📈 Tenant and Branch Scoped Orders',
+            '☁️ Authenticated Staff Identity & Security',
+            '💳 Server-Enforced Plan Limits',
+            '📊 Cashout Summaries',
             '🚚 Solo Food Truck Owner Quick-Serve Toggle',
             '📈 After-Hours Home Analytics & Peak Rush Tracking'
           ].map((text, i) => (
@@ -73,10 +77,10 @@ export default function Home() {
             '⚡ No-Lock Express Register for High-Velocity Lines',
             '🔒 4-Digit Waiter PIN Shared Tablet Security',
             '💵 El Corte de Caja (General & Waiter Z-Reports)',
-            '📈 Real-Time Tablet Order Sync & Room Routing',
-            '☁️ Cloud Multi-User Staff Identity & Security',
-            '💳 Simple Subscription Plans & Secure Billing',
-            '📊 Instant Digital Receipt & Shift Audit Exporting',
+            '📈 Tenant and Branch Scoped Orders',
+            '☁️ Authenticated Staff Identity & Security',
+            '💳 Server-Enforced Plan Limits',
+            '📊 Cashout Summaries',
             '🚚 Solo Food Truck Owner Quick-Serve Toggle',
             '📈 After-Hours Home Analytics & Peak Rush Tracking'
           ].map((text, i) => (
@@ -160,20 +164,20 @@ export default function Home() {
                 </p>
                 <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '1rem', color: '#fff', marginBottom: '32px' }}>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <CheckCircle2 size={18} color="#00ff66" /> <strong>Open Box Offline Mode</strong>: Download, set a local password, and start ringing up orders instantly without an internet connection or SaaS account.
+                    <CheckCircle2 size={18} color="#00ff66" /> <strong>Limited Local Mode</strong>: Use Free-plan capabilities for a local terminal session when cloud services are unavailable.
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <CheckCircle2 size={18} color="#00ff66" /> <strong>No-PIN Bypass</strong>: Launch straight into register operations without numpads.
+                    <CheckCircle2 size={18} color="#00ff66" /> <strong>Authenticated Server Mode</strong>: Appwrite validates identity; MerchantGo domain records remain in the VPS backend.
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <CheckCircle2 size={18} color="#00ff66" /> <strong>Helper Attribution Switcher</strong>: Quickly attribute sales to weekend assistants (Marco or Sofia) from a simple top dropdown.
+                    <CheckCircle2 size={18} color="#00ff66" /> <strong>Plan Capacity</strong>: Free supports 1 staff identity; Pro supports up to 3.
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <CheckCircle2 size={18} color="#00ff66" /> <strong>Rapid Settle & Wipe</strong>: Tapping Rapid Pay displays instant cash change calculators and Mercado Pago / Clip contactless terminals, resetting the cart cleanly in half a second!
+                    <CheckCircle2 size={18} color="#00ff66" /> <strong>Rapid Settle</strong>: Record cash or an externally completed card payment, then clear the cart.
                   </li>
                 </ul>
-                <Link to="/pricing" className="btn-express-glow">
-                  Deploy Solo Express Mode ($39/mo) →
+                <Link to="/pricing" onClick={() => trackKpi('cta_compare_plans')} className="btn-express-glow">
+                  Compare MerchantGo Plans →
                 </Link>
               </div>
 
@@ -222,9 +226,12 @@ export default function Home() {
                     <CheckCircle2 size={18} color="var(--primary-pos)" /> <strong>El Corte de Caja (Z-Report)</strong>: Desktop consoles compile shift financial accounting and export digital Z-Report audit tickets.
                   </li>
                 </ul>
-                <Link to="/pricing" className="btn-primary-glow">
-                  Deploy Enterprise Multi-Station ($129/mo) →
-                </Link>
+                <a
+                  href={`mailto:sales@merchantgo.store?subject=${encodeURIComponent('MerchantGo Enterprise access request')}`}
+                  className="btn-primary-glow"
+                >
+                  Request Enterprise Access →
+                </a>
               </div>
 
               <div style={{ background: 'rgba(0, 0, 0, 0.55)', padding: '28px', borderRadius: '20px', border: '1px solid rgba(255, 107, 0, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
@@ -259,7 +266,7 @@ export default function Home() {
       <section style={{ maxWidth: '1280px', margin: '0 auto 100px', padding: '0 28px' }}>
         <h2 style={{ fontSize: '2.6rem', textAlign: 'center', marginBottom: '16px' }}>Everything required to dominate peak service hours</h2>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', textAlign: 'center', maxWidth: '640px', margin: '0 auto 48px' }}>
-          Engineered for ultra-low latency, strict Row-Level Security, and instant cloud real-time responsiveness.
+          Built around authenticated role, plan, tenant, and branch enforcement.
         </p>
 
         <div className="responsive-grid-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '28px' }}>
@@ -280,23 +287,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* RELIABILITY & FUTURE ROADMAP BANNER */}
+      {/* MVP BOUNDARIES */}
       <section style={{ maxWidth: '1280px', margin: '0 auto 120px', padding: '0 28px' }}>
         <div className="glass-panel responsive-grid-mobile" style={{ padding: '64px 48px', background: 'radial-gradient(circle at right, rgba(99, 91, 255, 0.15) 0%, rgba(20,24,35,0.85) 100%)', border: '1px solid rgba(99, 91, 255, 0.35)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '40px', alignItems: 'center' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
               <span style={{ padding: '6px 14px', background: 'rgba(99, 91, 255, 0.2)', border: '1px solid #635bff', borderRadius: '999px', color: '#9d96ff', fontWeight: 800, fontSize: '0.8rem' }}>
-                🚀 LIVE ECOSYSTEM INTEGRATION
+                CURRENT MVP BOUNDARY
               </span>
             </div>
             <h2 style={{ fontSize: '2.8rem', color: '#fff', marginBottom: '18px', lineHeight: 1.15 }}>
-              Automated Cloud Backups & Inventory Sync
+              MerchantGo POS, with inventory kept separate
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.08rem', lineHeight: 1.7, marginBottom: '28px' }}>
-              MerchantGo safeguards your daily operational ledgers with automated cloud backups and strict account privacy. Plus, it features a live, seamless bridge with our StockMachine SaaS platform, automatically depleting raw ingredients the second an order is settled!
+              MerchantGo handles authenticated ordering, settlement, transfers, and cashouts. Inventory remains a separate StockMachine responsibility; automatic inventory depletion is not part of this MVP.
             </p>
             <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-              <Link to="/pricing" className="btn-primary-glow" style={{ background: '#635bff', boxShadow: '0 0 35px rgba(99, 91, 255, 0.45)' }}>
+              <Link to="/pricing" onClick={() => trackKpi('cta_compare_plans')} className="btn-primary-glow" style={{ background: '#635bff', boxShadow: '0 0 35px rgba(99, 91, 255, 0.45)' }}>
                 Explore POS Pricing Tiers →
               </Link>
               <a href="https://stockmachine.online" target="_blank" rel="noreferrer" className="btn-outline-glass">
@@ -307,13 +314,13 @@ export default function Home() {
 
           <div style={{ background: 'rgba(0,0,0,0.6)', padding: '32px', borderRadius: '20px', border: '1px solid var(--border-glass)' }}>
             <span style={{ color: '#00ff66', fontWeight: 800, fontSize: '0.85rem', display: 'block', marginBottom: '14px', textTransform: 'uppercase' }}>
-              ✔ LIVE REGISTER SYNC FEED
+              IMPLEMENTED API FLOW
             </span>
             <div style={{ fontFamily: 'monospace', fontSize: '0.88rem', color: '#ccc', display: 'flex', flexDirection: 'column', gap: '10px', lineHeight: 1.5 }}>
-              <div style={{ color: '#38bdf8' }}>[Staff Access] Manager verified shift start for Station #1 (Window)...</div>
-              <div>[Table Sync] Order #801 synchronized across bar tablet stations...</div>
-              <div style={{ color: '#ffb800' }}>[Shift Audit] Daily Z-Report balance verified. $1,420.00 logged cleanly to archive.</div>
-              <div style={{ color: '#00ff66' }}>[StockMachine Hook] Live depletion triggered: 1x Patty Chuck deduct confirmed.</div>
+              <div style={{ color: '#38bdf8' }}>[Staff Access] Authenticated role and plan resolved.</div>
+              <div>[Order] Tenant and branch scoped order accepted.</div>
+              <div style={{ color: '#ffb800' }}>[Settlement] Cash or external card payment recorded.</div>
+              <div style={{ color: '#00ff66' }}>[Cashout] Authorized shift summary generated.</div>
             </div>
           </div>
         </div>

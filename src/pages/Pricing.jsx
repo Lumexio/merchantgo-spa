@@ -1,80 +1,81 @@
-import React, { useState } from 'react';
-import { ShieldCheck, CheckCircle2, Zap, DollarSign, CreditCard, Lock, ArrowRight } from 'lucide-react';
+import React from 'react';
+import { CheckCircle2 } from 'lucide-react';
+import { trackKpi } from '../telemetry.js';
 
 export default function Pricing() {
-  const [showStripeModal, setShowStripeModal] = useState(false);
-  const [selectedTier, setSelectedTier] = useState(null);
-
   const plans = [
     {
       name: 'Free Solo Starter',
       price: '$0',
-      period: 'forever',
+      period: 'current access',
       target: 'Weekend vendors, street stalls & single kiosks',
       color: '#38bdf8',
       features: [
-        'Offline Open Box Experience (Start instantly without an account)',
-        '25 Menu Item Limit (or Unlimited via Google Cloud Sync)',
-        'All-in-One Express Quick-Serve POS Mode',
-        'Local offline shift audit trails & simple Z-Reports',
-        'Statistics & Analytics (Web Admin Hub Only)'
+        '25 menu items, 1 staff identity, and 1 branch',
+        'Local-only catalog on each device without cloud connection',
+        'Google Drive required for Free cross-device catalog sync',
+        'Express and table order creation',
+        'Cash and external card settlement recording',
+        'Menu management and authenticated analytics',
+        'Individual operator cashout reports'
       ],
-      cta: 'Launch Free Starter →',
+      cta: 'Start Free →',
+      href: 'https://app.merchantgo.store',
+      event: 'cta_start_free',
       recommended: false
     },
     {
       name: 'Express Food Truck Pro',
       price: '$39',
-      period: 'per month / billed annually',
+      period: 'planned price; billing unavailable',
       target: 'Active food trucks, coffee trucks & boutique vendors',
       color: '#00ff66',
       features: [
-        '100 Menu Item Limit (or Unlimited via Google Cloud Sync)',
-        'Staff Limit & Storage Indicator Capacity Bars',
-        '👤 Helper Staff PIN Switcher (Up to 3 Weekend Helpers)',
-        '🔒 Shared Touch Tablet 4-Digit Waiter PIN Security',
-        '💳 Contactless Terminal Tap to Pay Integration',
-        '☁️ Automated Cloud Data Backup Protection'
+        '100 menu items, 3 staff identities, and 1 branch',
+        'Everything in Free',
+        'VPS-managed catalog sync without a personal cloud account',
+        'Configured shared-station staff PIN access',
+        'Order transfer and reassignment',
+        'Individual operator cashout reports'
       ],
-      cta: 'Upgrade to Food Truck Pro →',
+      cta: 'Request Pro Access →',
+      href: `mailto:sales@merchantgo.store?subject=${encodeURIComponent('MerchantGo Pro access request')}`,
+      event: 'cta_request_pro',
       recommended: true
     },
     {
       name: 'Enterprise Hospitality',
       price: '$129',
-      period: 'per month / billed annually',
+      period: 'planned price; billing unavailable',
       target: 'Full-service table restaurants, cocktail bars & clubs',
       color: 'var(--primary-pos)',
       features: [
-        '250 Menu Item Limit (or Unlimited via Google Cloud Sync)',
-        'Full Multi-Station Waiter Tablet Shared Keypads (PIN 4-digit)',
-        '🖥️ Desktop Cashier Consoles & Digital Z-Report Auditing',
-        '🔓 Real-Time Shift Till Reconciliation & Cloud Sync',
-        'El Corte de Caja General & Individual Waiter Tip Pools',
-        'Dedicated SLA & 24/7 VIP Engineering Support'
+        '250 menu items, 100 staff identities, and 25 branches',
+        'Everything in Pro',
+        'Managed multi-branch data on MerchantGo VPS storage',
+        'Kitchen display access',
+        'General cashout for Enterprise Admins',
+        'Individual operator cashout reports'
       ],
-      cta: 'Deploy Enterprise Suite →',
+      cta: 'Request Enterprise Access →',
+      href: `mailto:sales@merchantgo.store?subject=${encodeURIComponent('MerchantGo Enterprise access request')}`,
+      event: 'cta_request_enterprise',
       recommended: false
     }
   ];
-
-  const handleOpenStripe = (plan) => {
-    setSelectedTier(plan);
-    setShowStripeModal(true);
-  };
 
   return (
     <div style={{ padding: '80px 28px', maxWidth: '1280px', margin: '0 auto' }}>
       
       <div style={{ textAlign: 'center', marginBottom: '64px' }}>
         <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#00ff66', background: 'rgba(0, 255, 102, 0.15)', padding: '6px 16px', borderRadius: '999px', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'inline-block', marginBottom: '16px', border: '1px solid rgba(0, 255, 102, 0.35)' }}>
-          ● Transparent Enterprise & Solo Monetization
+          ● Current and Planned Access Tiers
         </span>
         <h1 style={{ fontSize: '3.6rem', marginBottom: '16px' }}>
-          Simple SaaS Plans. <span className="text-gradient-green">Secure Embedded</span> Checkout.
+          MerchantGo Access. <span className="text-gradient-green">Enforced Limits</span>.
         </h1>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', maxWidth: '720px', margin: '0 auto' }}>
-          Select the operating plan tailored to your venue. Upgrade smoothly inside our native glassmorphic modals without being thrown out to external browser tabs!
+          Start locally for free, connect your own Google Drive when you need cross-device catalog sync, and upgrade for MerchantGo-managed VPS storage, more staff, or more branches.
         </p>
       </div>
 
@@ -126,72 +127,20 @@ export default function Pricing() {
               </ul>
             </div>
 
-            <button 
-              onClick={() => handleOpenStripe(p)}
+            <a
+              href={p.href}
+              onClick={() => trackKpi(p.event)}
               className={p.recommended ? 'btn-express-glow' : 'btn-outline-glass'} 
               style={{ width: '100%', padding: '16px', fontSize: '1.05rem', justifyContent: 'center', borderColor: !p.recommended ? p.color : 'none' }}
             >
               {p.cta}
-            </button>
+            </a>
+            <span style={{ color: 'var(--text-muted)', fontSize: '0.82rem', textAlign: 'center', marginTop: '12px' }}>
+              {p.price === '$0' ? 'Create an account in the hosted app; no card required.' : 'This sends an access request. It does not activate billing or the plan instantly.'}
+            </span>
           </div>
         ))}
       </div>
-
-      {/* STRIPE EMBEDDED CHECKOUT SIMULATION MODAL (AUTHORITATIVE REFERENCE FROM STOCKMACHINE-WEB) */}
-      {showStripeModal && selectedTier && (
-        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(16px)', zIndex: 300, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
-          <div className="glass-panel" style={{ width: '100%', maxWidth: '580px', padding: '44px', position: 'relative', border: '2px solid #635bff', boxShadow: '0 25px 60px rgba(99, 91, 255, 0.4)' }}>
-            
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px dashed rgba(255,255,255,0.2)', paddingBottom: '16px', marginBottom: '24px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: '#635bff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900 }}>S</div>
-                <span style={{ fontSize: '1.25rem', fontWeight: 800, fontFamily: 'Outfit', color: '#fff' }}>Secure SaaS Checkout</span>
-              </div>
-              <span style={{ fontSize: '0.75rem', padding: '4px 10px', background: 'rgba(0, 255, 102, 0.15)', color: '#00ff66', borderRadius: '999px', fontWeight: 700, border: '1px solid rgba(0,255,102,0.3)' }}>
-                ● SSL Verified Secure
-              </span>
-            </div>
-
-            <div style={{ marginBottom: '28px' }}>
-              <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', display: 'block' }}>Selected SaaS Subscription:</span>
-              <h3 style={{ fontSize: '2.2rem', color: '#fff', margin: '4px 0 8px' }}>{selectedTier.name} ({selectedTier.price})</h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem' }}>
-                Your organization workspace is provisioned instantly in the cloud with strict account privacy and automated backup protection.
-              </p>
-            </div>
-
-            <div style={{ background: 'rgba(0,0,0,0.5)', padding: '20px', borderRadius: '14px', marginBottom: '28px', border: '1px solid rgba(255,255,255,0.06)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px', fontSize: '0.9rem', color: '#ccc' }}>
-                <span>Organization Workspace ID:</span>
-                <strong style={{ color: '#fff' }}>merchant_venue_801@cloud.store</strong>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem', color: '#ccc' }}>
-                <span>Billing Method:</span>
-                <strong style={{ color: '#00ff66' }}>Visa ending in •••• 4242 (Test Mode)</strong>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <button 
-                onClick={() => { alert(`✔ Checkout confirmed for ${selectedTier.name}! Your workspace is synchronized across all registers.`); setShowStripeModal(false); }}
-                className="btn-primary-glow" 
-                style={{ background: '#635bff', width: '100%', padding: '16px', fontSize: '1.15rem', boxShadow: '0 0 35px rgba(99, 91, 255, 0.6)' }}
-              >
-                🔒 Authorize Subscription & Activate Hub →
-              </button>
-
-              <button 
-                onClick={() => setShowStripeModal(false)}
-                className="btn-outline-glass" 
-                style={{ width: '100%', padding: '12px', fontSize: '0.95rem' }}
-              >
-                Cancel / Choose Another Plan
-              </button>
-            </div>
-
-          </div>
-        </div>
-      )}
 
     </div>
   );

@@ -1,0 +1,31 @@
+name: Feature request
+description: Propose a MerchantGo marketing or acquisition improvement.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: User need
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Proposed content or behavior
+      description: Include route, audience, source for claims/pricing, CTA, accessibility, and responsive behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: cascade
+    attributes:
+      label: Cross-repository impact
+      description: Note backend billing, client feature gates, release links, domains, analytics, and deployment changes.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Utensils, Zap, Download, DollarSign, ArrowRight, ShieldCheck, Truck, Menu, X } from 'lucide-react';
+import { Zap, Download, DollarSign, ArrowRight, Menu, X } from 'lucide-react';
+import { trackKpi } from '../telemetry.js';
 
 export default function Navbar() {
   const location = useLocation();
@@ -62,7 +63,7 @@ export default function Navbar() {
               gap: '8px'
             }}
           >
-            <DollarSign size={16} color="#00ff66" /> SaaS Pricing
+            <DollarSign size={16} color="#00ff66" /> Access Tiers
           </Link>
 
           <Link 
@@ -81,14 +82,14 @@ export default function Navbar() {
               gap: '8px'
             }}
           >
-            <Download size={16} color="#38bdf8" /> Client Apps & Binaries
+            <Download size={16} color="#38bdf8" /> Client Availability
           </Link>
         </nav>
 
-        {/* EXTERNAL HUB LAUNCH CTA */}
+        {/* PRIMARY FREE CTA */}
         <div className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <a href="https://app.merchantgo.store" target="_blank" rel="noreferrer" className="btn-primary-glow" style={{ padding: '10px 20px', fontSize: '0.92rem' }}>
-            Launch Web Admin Hub <ArrowRight size={16} />
+          <a href="https://app.merchantgo.store" onClick={() => trackKpi('cta_start_free')} className="btn-express-glow" style={{ padding: '10px 20px', fontSize: '0.92rem' }}>
+            Start Free <ArrowRight size={16} />
           </a>
         </div>
 
@@ -109,14 +110,14 @@ export default function Navbar() {
             <Zap size={20} color="var(--primary-pos)" /> Features & Modes
           </Link>
           <Link to="/pricing" onClick={() => setIsMobileMenuOpen(false)} style={{ color: isActive('/pricing') ? '#fff' : 'var(--text-main)', fontSize: '1.2rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <DollarSign size={20} color="#00ff66" /> SaaS Pricing
+            <DollarSign size={20} color="#00ff66" /> Access Tiers
           </Link>
           <Link to="/downloads" onClick={() => setIsMobileMenuOpen(false)} style={{ color: isActive('/downloads') ? '#fff' : 'var(--text-main)', fontSize: '1.2rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Download size={20} color="#38bdf8" /> Client Apps & Binaries
+            <Download size={20} color="#38bdf8" /> Client Availability
           </Link>
           <div style={{ height: '1px', background: 'var(--border-glass)', margin: '10px 0' }} />
-          <a href="https://app.merchantgo.store" target="_blank" rel="noreferrer" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'var(--primary-pos)', fontSize: '1.2rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
-            Launch Web Admin Hub <ArrowRight size={18} />
+          <a href="https://app.merchantgo.store" onClick={() => { trackKpi('cta_start_free'); setIsMobileMenuOpen(false); }} style={{ color: '#00ff66', fontSize: '1.2rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            Start Free <ArrowRight size={18} />
           </a>
         </div>
       )}

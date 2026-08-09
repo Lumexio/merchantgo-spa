@@ -38,10 +38,11 @@ export default function Pricing() {
         'Order transfer and reassignment',
         'Individual operator cashout reports'
       ],
-      cta: 'Request Pro Access →',
-      href: `mailto:sales@merchantgo.store?subject=${encodeURIComponent('MerchantGo Pro access request')}`,
+      cta: 'Coming Soon',
+      href: '#',
       event: 'cta_request_pro',
-      recommended: true
+      disabled: true,
+      recommended: false
     },
     {
       name: 'Enterprise Hospitality',
@@ -57,9 +58,10 @@ export default function Pricing() {
         'General cashout for Enterprise Admins',
         'Individual operator cashout reports'
       ],
-      cta: 'Request Enterprise Access →',
-      href: `mailto:sales@merchantgo.store?subject=${encodeURIComponent('MerchantGo Enterprise access request')}`,
+      cta: 'Coming Soon',
+      href: '#',
       event: 'cta_request_enterprise',
+      disabled: true,
       recommended: false
     }
   ];
@@ -129,14 +131,17 @@ export default function Pricing() {
 
             <a
               href={p.href}
-              onClick={() => trackKpi(p.event)}
+              onClick={(e) => {
+                if (p.disabled) e.preventDefault();
+                trackKpi(p.event);
+              }}
               className={p.recommended ? 'btn-express-glow' : 'btn-outline-glass'} 
-              style={{ width: '100%', padding: '16px', fontSize: '1.05rem', justifyContent: 'center', borderColor: !p.recommended ? p.color : 'none' }}
+              style={{ width: '100%', padding: '16px', fontSize: '1.05rem', justifyContent: 'center', borderColor: !p.recommended ? p.color : 'none', opacity: p.disabled ? 0.5 : 1, cursor: p.disabled ? 'not-allowed' : 'pointer' }}
             >
               {p.cta}
             </a>
             <span style={{ color: 'var(--text-muted)', fontSize: '0.82rem', textAlign: 'center', marginTop: '12px' }}>
-              {p.price === '$0' ? 'Create an account in the hosted app; no card required.' : 'This sends an access request. It does not activate billing or the plan instantly.'}
+              {p.price === '$0' ? 'Create an account in the hosted app; no card required.' : 'This tier is currently unavailable as we polish the early product.'}
             </span>
           </div>
         ))}

@@ -25,9 +25,9 @@ export default function Pricing() {
       recommended: false
     },
     {
-      name: 'Express Food Truck Pro',
-      price: '$39',
-      period: 'planned price; billing unavailable',
+      name: 'MerchantGo Pro',
+      price: '$12.99',
+      period: 'mo (Solo) | $59.99/mo Team',
       target: 'Active food trucks, coffee trucks & boutique vendors',
       color: '#00ff66',
       features: [
@@ -45,9 +45,9 @@ export default function Pricing() {
       recommended: false
     },
     {
-      name: 'Enterprise Hospitality',
-      price: '$129',
-      period: 'planned price; billing unavailable',
+      name: 'MerchantGo Overlord',
+      price: '$39.99',
+      period: 'mo (Solo) | $119.99/mo Team',
       target: 'Full-service table restaurants, cocktail bars & clubs',
       color: 'var(--primary-pos)',
       features: [

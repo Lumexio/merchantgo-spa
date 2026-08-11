@@ -38,10 +38,10 @@ export default function Pricing() {
         'Order transfer and reassignment',
         'Individual operator cashout reports'
       ],
-      cta: 'Coming Soon',
-      href: '#',
+      cta: 'Upgrade in App',
+      href: 'https://app.merchantgo.store/profile',
       event: 'cta_request_pro',
-      disabled: true,
+      disabled: false,
       recommended: false
     },
     {
@@ -58,10 +58,10 @@ export default function Pricing() {
         'General cashout for Enterprise Admins',
         'Individual operator cashout reports'
       ],
-      cta: 'Coming Soon',
-      href: '#',
+      cta: 'Upgrade in App',
+      href: 'https://app.merchantgo.store/profile',
       event: 'cta_request_enterprise',
-      disabled: true,
+      disabled: false,
       recommended: false
     }
   ];
@@ -141,7 +141,7 @@ export default function Pricing() {
               {p.cta}
             </a>
             <span style={{ color: 'var(--text-muted)', fontSize: '0.82rem', textAlign: 'center', marginTop: '12px' }}>
-              {p.price === '$0' ? 'Create an account in the hosted app; no card required.' : 'This tier is currently unavailable as we polish the early product.'}
+              {p.price === '$0' ? 'Create an account in the hosted app; no card required.' : 'Log in to the app to upgrade your plan via Stripe.'}
             </span>
           </div>
         ))}

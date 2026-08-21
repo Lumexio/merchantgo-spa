@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite --port 3005",
     "build": "vite build",
+    "test": "vitest run",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -16,6 +17,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
-    "vite": "^5.4.2"
+    "happy-dom": "^20.11.6",
+    "vite": "^5.4.2",
+    "vitest": "^4.1.11"
   }
 }

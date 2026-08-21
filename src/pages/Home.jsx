@@ -5,10 +5,10 @@ import { trackKpi } from '../telemetry.js';
 
 export default function Home() {
   const features = [
-    { title: 'Lightning Fast Register', desc: 'Process high-velocity lines without friction. Seamlessly record cash or external card-terminal settlements.', color: '#00ff66' },
-    { title: 'Shared Tablet Security', desc: '4-Digit Waiter PINs lock and unlock stations instantly, keeping your team moving fast and securely.', color: 'var(--primary-pos)' },
-    { title: 'Shift Reconciliations', desc: 'Flawless cashout reports for managers and staff, summarizing cash and external card settlements automatically.', color: '#38bdf8' },
-    { title: 'Team & Role Management', desc: 'Securely delegate access as your staff grows. Built-in roles ensure your data is always protected.', color: '#a855f7' },
+    { title: 'Offline-First Resilience', desc: '100% offline capability. Keep taking orders when the internet drops; our background queue syncs everything when it returns.', color: '#00ff66' },
+    { title: 'Shift Reconciliations', desc: 'Flawless cashout reports for managers and staff, featuring automatic Z-reports, refund tracking, and immutable audit logs.', color: '#38bdf8' },
+    { title: 'Real-Time KDS', desc: 'Ditch the paper tickets. Relay orders instantly to Kitchen Display Systems (KDS) across your entire network via secure WebSockets.', color: '#ff6b00' },
+    { title: 'Multi-Tenant Ecosystem', desc: 'Manage unlimited locations from a single dashboard. Toggle consolidated sales views and safely back up data to Google Drive.', color: '#a855f7' },
   ];
 
   return (

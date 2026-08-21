@@ -12,12 +12,11 @@ export default function Pricing() {
       color: '#38bdf8',
       features: [
         '25 menu items, 1 staff identity, and 1 branch',
-        'Local-only catalog on each device without cloud connection',
-        'Google Drive required for Free cross-device catalog sync',
-        'Express and table order creation',
+        '100% Offline-first checkout (Express & Table)',
+        'Individual operator shift Z-reports',
         'Cash and external card settlement recording',
-        'Menu management and authenticated analytics',
-        'Individual operator cashout reports'
+        'Menu management and basic analytics',
+        'Local device POS setup without cloud connection'
       ],
       cta: 'Start Free →',
       href: 'https://app.merchantgo.store',
@@ -33,10 +32,10 @@ export default function Pricing() {
       features: [
         '100 menu items, 3 staff identities, and 1 branch',
         'Everything in Free',
-        'VPS-managed catalog sync without a personal cloud account',
-        'Configured shared-station staff PIN access',
-        'Order transfer and reassignment',
-        'Individual operator cashout reports'
+        'VPS-managed catalog sync across devices',
+        'Background sync queue for resilient offline transactions',
+        'Configured shared-station PIN access',
+        'Global Consolidated Sales views and Web Dashboard'
       ],
       cta: 'Upgrade in App',
       href: 'https://app.merchantgo.store/profile',
@@ -51,12 +50,12 @@ export default function Pricing() {
       target: 'Full-service table restaurants, cocktail bars & clubs',
       color: 'var(--primary-pos)',
       features: [
-        '250 menu items, 100 staff identities, and 25 branches',
+        '250 menu items, 100 staff identities, and unlimited branches',
         'Everything in Pro',
-        'Managed multi-branch data on MerchantGo VPS storage',
-        'Kitchen display access',
-        'General cashout for Enterprise Admins',
-        'Individual operator cashout reports'
+        'Real-time Socket.io Kitchen Display System (KDS)',
+        'Automated daily Google Drive backups',
+        'Multi-tenant Location Switcher',
+        'Centralized Enterprise cashout and telemetry'
       ],
       cta: 'Upgrade in App',
       href: 'https://app.merchantgo.store/profile',

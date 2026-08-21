@@ -1,11 +1,11 @@
 import React from 'react';
-import { ShieldCheck, Database, ExternalLink } from 'lucide-react';
+import { ShieldCheck, Database, ExternalLink, Coffee } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer style={{ borderTop: '1px solid var(--border-glass)', backgroundColor: '#06070a', padding: '60px 28px 40px' }}>
       <div className="responsive-grid-mobile" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '40px', marginBottom: '48px' }}>
-        
+
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
             <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--primary-pos)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: '1.1rem' }}>M</div>
@@ -31,7 +31,7 @@ export default function Footer() {
             </li>
             <li>
               <a href="https://cometpocketmachinery.online" target="_blank" rel="noreferrer" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: '0.2s', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                🪐 Comet Pocket Machinery Brand Hub <ExternalLink size={14} color="var(--primary-pos)" />
+                🚀 Comet Pocket Machinery Brand Hub <ExternalLink size={14} color="var(--primary-pos)" />
               </a>
             </li>
             <li>
@@ -45,10 +45,10 @@ export default function Footer() {
         <div>
           <h4 style={{ fontSize: '1.1rem', color: '#fff', marginBottom: '18px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Current Availability</h4>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', color: 'var(--text-muted)', fontSize: '0.92rem' }}>
-            <li>▪ Hosted web application</li>
-            <li>▪ Native downloads follow verified GitHub Releases</li>
-            <li>▪ Unpublished release assets are marked coming soon</li>
-            <li>▪ External cash and card terminal recording</li>
+            <li>• Hosted web application</li>
+            <li>• Native downloads follow verified GitHub Releases</li>
+            <li>• Unpublished release assets are marked coming soon</li>
+            <li>• External cash and card terminal recording</li>
           </ul>
         </div>
 
@@ -56,9 +56,14 @@ export default function Footer() {
 
       <div style={{ maxWidth: '1280px', margin: '0 auto', paddingTop: '32px', borderTop: '1px solid rgba(255, 255, 255, 0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
         <span>© 2026 MerchantGo POS Suite • All Shared Tablet Security PIN & Corte de Caja rules enforced.</span>
-        <span style={{ color: '#00ff66', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600 }}>
-          <ShieldCheck size={16} /> API-enforced role and tenant scope
-        </span>
+        <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+          <span style={{ color: '#00ff66', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600 }}>
+            <ShieldCheck size={16} /> API-enforced role and tenant scope
+          </span>
+          <a href="https://buy.stripe.com/aFa3cw4SR4iKerM8TgdnW00" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', textDecoration: 'none', transition: 'all 0.3s ease' }} onMouseOver={e => { e.currentTarget.style.color = '#ff9800'; }} onMouseOut={e => { e.currentTarget.style.color = 'var(--text-muted)'; }}>
+            <Coffee size={16} /> Buy the dev a coffee
+          </a>
+        </div>
       </div>
     </footer>
   );
